@@ -1,6 +1,5 @@
-import { useDispatch } from 'react-redux';
 import { ToDo } from '../../interfaces/models/ToDo';
-import { toggleTodo } from '../../store/slices/toDosSlice';
+import { useToDoToggle } from './hooks/useToDoToggle';
 
 export interface TodoListItemProps {
   todo: ToDo;
@@ -8,10 +7,7 @@ export interface TodoListItemProps {
 
 export const TodoListItem = (props: TodoListItemProps) => {
   const { todo } = props;
-  const dispatch = useDispatch();
-  const handleToggleClick = () => {
-    dispatch(toggleTodo({ id: todo.id }));
-  };
+  const handleToggleClick = useToDoToggle(todo.id);
 
   return (
     <li>
