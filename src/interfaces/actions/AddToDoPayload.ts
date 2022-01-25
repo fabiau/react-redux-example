@@ -1,4 +1,4 @@
-export interface AddTodoPayload {
+export interface AddToDoPayload {
   id: string;
   description: string;
 }

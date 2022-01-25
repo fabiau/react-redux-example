@@ -1,9 +1,9 @@
-import { useDispatch } from "react-redux";
-import { Todo } from "../Todo";
-import { toggleTodo } from "../todosSlice";
+import { useDispatch } from 'react-redux';
+import { ToDo } from '../../interfaces/models/ToDo';
+import { toggleTodo } from '../../store/slices/toDosSlice';
 
 export interface TodoListItemProps {
-  todo: Todo;
+  todo: ToDo;
 }
 
 export const TodoListItem = (props: TodoListItemProps) => {

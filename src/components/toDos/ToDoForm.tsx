@@ -1,13 +1,13 @@
-import { useForm } from "react-hook-form";
-import { useDispatch } from "react-redux";
-import uniqid from "uniqid";
-import { addTodo } from "../todosSlice";
+import { useForm } from 'react-hook-form';
+import { useDispatch } from 'react-redux';
+import uniqid from 'uniqid';
+import { addTodo } from '../../store/slices/toDosSlice';
 
 interface FormData {
   description: string;
 }
 
-export const TodoForm = () => {
+export const ToDoForm = () => {
   const dispatch = useDispatch();
   const { register, handleSubmit, reset } = useForm<FormData>();
   const onSubmit = handleSubmit((data) => {
@@ -22,7 +22,7 @@ export const TodoForm = () => {
 
   return (
     <form onSubmit={onSubmit}>
-      <input type="text" {...register("description")} />
+      <input type="text" {...register('description')} />
       <button type="submit">Add</button>
     </form>
   );
