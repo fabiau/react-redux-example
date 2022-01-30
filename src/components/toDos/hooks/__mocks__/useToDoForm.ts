@@ -4,7 +4,7 @@ interface FormData {
   description: string;
 }
 
-export function useToDoForm() {
+export function useTodoForm() {
   const { register, handleSubmit, reset } = useForm<FormData>();
   const handleAddToDo = handleSubmit((data) => {
     reset();

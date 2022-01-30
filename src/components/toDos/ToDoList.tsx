@@ -1,13 +1,13 @@
 import { useSelector } from 'react-redux';
-import { selectToDosItems } from '../../store/selectors/selectToDos';
-import { TodoListItem } from './ToDoListItem';
+import { selectTodosItems } from '../../store/selectors/selectTodos';
+import { TodoListItem } from './TodoListItem';
 
-export const ToDoList = () => {
-  const toDos = useSelector(selectToDosItems);
+export const TodoList = () => {
+  const todos = useSelector(selectTodosItems);
 
   return (
     <ul>
-      {toDos.map((todo) => (
+      {todos.map((todo) => (
         <TodoListItem key={todo.id} todo={todo} />
       ))}
     </ul>

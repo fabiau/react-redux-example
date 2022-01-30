@@ -1,13 +1,13 @@
 import { configureStore } from '@reduxjs/toolkit';
 import createSagaMiddleware from 'redux-saga';
 import rootSaga from './sagas';
-import toDosSlice from './slices/toDosSlice';
+import todosSlice from './slices/todosSlice';
 
 const sagaMiddleware = createSagaMiddleware();
 
 export const store = configureStore({
   reducer: {
-    toDos: toDosSlice,
+    todos: todosSlice,
   },
   middleware: [sagaMiddleware],
 });

@@ -1,41 +1,40 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { AddToDoPayload } from '../../interfaces/actions/AddToDoPayload';
-import { RemoveToDoPayload } from '../../interfaces/actions/RemoveToDoPayload';
-import { ToggleToDoPayload } from '../../interfaces/actions/ToggleToDoPayload';
-import { ToDo } from '../../interfaces/models/ToDo';
+import { TodoAddedPayload } from '../../interfaces/actions/TodoAddedPayload';
+import { TodoRemovedPayload } from '../../interfaces/actions/TodoRemovedPayload';
+import { TodoToggledPayload } from '../../interfaces/actions/TodoToggledPayload';
+import { Todo } from '../../interfaces/models/Todo';
 
-export interface TodosState {
-  items: Record<string, ToDo>;
-}
+export interface TodosState extends Record<string, Todo> {}
+const initialState: TodosState = {};
 
-const initialState: TodosState = {
-  items: {},
-};
-
-export const toDosSlice = createSlice({
-  name: 'toDos',
+export const todosSlice = createSlice({
+  name: 'todos',
   initialState,
   reducers: {
-    addToDo: (state, action: PayloadAction<AddToDoPayload>) => {
+    todoAdded: (state, action: PayloadAction<TodoAddedPayload>) => {
       // Redux Toolkit allows us to write "mutating" logic in reducers. It
       // doesn't actually mutate the state because it uses the Immer library,
       // which detects changes to a "draft state" and produces a brand new
       // immutable state based off those changes
-      state.items[action.payload.id] = { ...action.payload, isComplete: false };
+      state[action.payload.id] = { ...action.payload, completed: false };
     },
-    removeToDo: (state, action: PayloadAction<RemoveToDoPayload>) => {
-      delete state.items[action.payload.id];
+    todoRemoved: (state, action: PayloadAction<TodoRemovedPayload>) => {
+      delete state[action.payload.id];
     },
-    toggleToDo: (state, action: PayloadAction<ToggleToDoPayload>) => {
-      const todo = state.items[action.payload.id];
+    todoToggled: (state, action: PayloadAction<TodoToggledPayload>) => {
+      const todo = state[action.payload.id];
       if (todo) {
-        todo.isComplete = !todo.isComplete;
+        todo.completed = !todo.completed;
       }
     },
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { addToDo, removeToDo, toggleToDo } = toDosSlice.actions;
+export const {
+  todoAdded: todoAdded,
+  todoRemoved: todoRemoved,
+  todoToggled: todoToggled,
+} = todosSlice.actions;
 
-export default toDosSlice.reducer;
+export default todosSlice.reducer;

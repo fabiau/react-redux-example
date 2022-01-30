@@ -1,24 +1,24 @@
 import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
 import uniqid from 'uniqid';
-import { addToDo } from '../../../store/slices/toDosSlice';
+import { todoAdded } from '../../../store/slices/todosSlice';
 
 interface FormData {
   description: string;
 }
 
-export function useToDoForm() {
+export function useTodoForm() {
   const dispatch = useDispatch();
   const { register, handleSubmit, reset } = useForm<FormData>();
-  const handleAddToDo = handleSubmit((data) => {
+  const handleAddTodo = handleSubmit((data) => {
     dispatch(
-      addToDo({
+      todoAdded({
         id: uniqid(),
-        description: data.description,
+        text: data.description,
       })
     );
     reset();
   });
 
-  return { register, handleSubmit: handleAddToDo };
+  return { register, handleSubmit: handleAddTodo };
 }

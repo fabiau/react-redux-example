@@ -1,7 +1,7 @@
 import { createSelector } from '@reduxjs/toolkit';
 import { RootState } from '..';
 
-export const selectToDos = (state: RootState) => state.toDos.items;
-export const selectToDosItems = createSelector(selectToDos, (toDos) =>
-  Object.values(toDos)
+export const selectTodos = (state: RootState) => state.todos;
+export const selectTodosItems = createSelector(selectTodos, (todos) =>
+  Object.values(todos)
 );

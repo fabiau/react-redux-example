@@ -1,10 +1,10 @@
 import { useDispatch } from 'react-redux';
-import { toggleToDo } from '../../../store/slices/toDosSlice';
+import { todoToggled } from '../../../store/slices/todosSlice';
 
-export function useToDoToggle(todoId: string) {
+export function useTodoToggle(todoId: string) {
   const dispatch = useDispatch();
   const handleToggleClick = () => {
-    dispatch(toggleToDo({ id: todoId }));
+    dispatch(todoToggled({ id: todoId }));
   };
   return handleToggleClick;
 }

@@ -1,20 +1,20 @@
-import { ToDo } from '../../interfaces/models/ToDo';
-import { useToDoToggle } from './hooks/useToDoToggle';
+import { Todo } from '../../interfaces/models/Todo';
+import { useTodoToggle } from './hooks/useTodoToggle';
 
 export interface TodoListItemProps {
-  todo: ToDo;
+  todo: Todo;
 }
 
 export const TodoListItem = (props: TodoListItemProps) => {
   const { todo } = props;
-  const handleToggleClick = useToDoToggle(todo.id);
+  const handleToggleClick = useTodoToggle(todo.id);
 
   return (
     <li>
-      {todo.description}
+      {todo.text}
       <input
         type="checkbox"
-        checked={todo.isComplete}
+        checked={todo.completed}
         onChange={handleToggleClick}
       />
     </li>

@@ -1,7 +1,7 @@
-import { useToDoForm } from './hooks/useToDoForm';
+import { useTodoForm } from './hooks/useTodoForm';
 
-export const ToDoForm = () => {
-  const { register, handleSubmit } = useToDoForm();
+export const TodoForm = () => {
+  const { register, handleSubmit } = useTodoForm();
 
   return (
     <form onSubmit={handleSubmit}>

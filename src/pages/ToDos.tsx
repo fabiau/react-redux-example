@@ -1,11 +1,11 @@
-import { ToDoForm } from "../components/toDos/ToDoForm";
-import { ToDoList } from "../components/toDos/ToDoList";
+import { TodoForm } from "../components/toDos/TodoForm";
+import { TodoList } from "../components/toDos/TodoList";
 
 export const ToDos = () => {
   return (
     <>
-      <ToDoForm />
-      <ToDoList />
+      <TodoForm />
+      <TodoList />
     </>
   );
 };
