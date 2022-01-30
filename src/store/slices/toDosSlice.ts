@@ -31,10 +31,6 @@ export const todosSlice = createSlice({
 });
 
 // Action creators are generated for each case reducer function
-export const {
-  todoAdded: todoAdded,
-  todoRemoved: todoRemoved,
-  todoToggled: todoToggled,
-} = todosSlice.actions;
+export const { todoAdded, todoRemoved, todoToggled } = todosSlice.actions;
 
 export default todosSlice.reducer;
