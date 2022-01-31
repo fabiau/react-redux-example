@@ -7,6 +7,6 @@
   flex-direction: column;
 }
 
-.todo-list :nth-child(odd) {
+.todo-list > li:nth-child(odd) {
   background: #cbd5e1;
 }
