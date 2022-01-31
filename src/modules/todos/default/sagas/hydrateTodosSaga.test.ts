@@ -1,6 +1,6 @@
 import { apply, put } from 'redux-saga/effects';
-import todosRepository from '../../../db/todosRepository';
-import { todosHydrated } from '../../slices/todosSlice';
+import { todosHydrated } from '../defaultTodosSlice';
+import todosRepository from '../repository/todosRepository';
 import { hydrateTodos } from './hydrateTodosSaga';
 
 describe('hydrateTodos', () => {

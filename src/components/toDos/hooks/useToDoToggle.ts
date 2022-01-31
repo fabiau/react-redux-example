@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import { todoToggled } from '../../../store/slices/todosSlice';
+import { todoToggled } from '../../../modules/todos/default/defaultTodosSlice';
 
 export function useTodoToggle(todoId: string) {
   const dispatch = useDispatch();

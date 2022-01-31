@@ -1,6 +1,6 @@
 import { apply, put, takeEvery } from 'redux-saga/effects';
-import todosRepository from '../../../db/todosRepository';
-import { todoRemoved } from '../../slices/todosSlice';
+import { todoRemoved } from '../defaultTodosSlice';
+import todosRepository from '../repository/todosRepository';
 
 export const REMOVE_TODO_SAGA = 'sagas/todos/remove';
 

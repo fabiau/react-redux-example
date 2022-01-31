@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux';
-import { selectTodosItems } from '../../store/selectors/todos';
 import { TodoListItem } from './TodoListItem';
 
+import { selectTodosItems } from '../../modules/todos/default/selectors';
 import './TodoList.css';
 
 export const TodoList = () => {

@@ -1,11 +1,11 @@
 import { apply, put } from 'redux-saga/effects';
-import todosRepository from '../../../db/todosRepository';
-import { Todo } from '../../../interfaces/models/Todo';
-import { todosHydrated } from '../../slices/todosSlice';
+import todosRepository from '../repository/todosRepository';
+import { todosHydrated } from '../defaultTodosSlice';
+import { ITodo } from '../ITodo';
 
 export function* hydrateTodos() {
   try {
-    const allTodos: ReadonlyArray<Todo> = yield apply(
+    const allTodos: ReadonlyArray<ITodo> = yield apply(
       todosRepository,
       todosRepository.all,
       []

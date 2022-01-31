@@ -1,8 +1,8 @@
 import Dexie, { Table } from 'dexie';
-import { Todo } from '../interfaces/models/Todo';
+import { ITodo } from '../ITodo';
 
 class TodosDb extends Dexie {
-  public readonly todos!: Table<Todo>;
+  public readonly todos!: Table<ITodo>;
 
   constructor() {
     super('todosDb');
@@ -15,7 +15,7 @@ class TodosDb extends Dexie {
 export class TodosRepository {
   private readonly db = new TodosDb();
 
-  public add(item: Todo) {
+  public add(item: ITodo) {
     return this.db.todos.add(item);
   }
 

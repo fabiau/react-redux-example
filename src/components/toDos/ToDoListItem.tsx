@@ -1,11 +1,11 @@
-import { Todo } from '../../interfaces/models/Todo';
+import { ITodo } from '../../modules/todos/default/ITodo';
 import { useTodoRemove } from './hooks/useTodoRemove';
 import { useTodoToggle } from './hooks/useTodoToggle';
 
 import './TodoListItem.css';
 
 export interface TodoListItemProps {
-  todo: Todo;
+  todo: ITodo;
 }
 
 export const TodoListItem = (props: TodoListItemProps) => {

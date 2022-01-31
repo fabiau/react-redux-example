@@ -1,8 +1,8 @@
 import { apply, call, put, select, takeEvery } from 'redux-saga/effects';
 import uniqid from 'uniqid';
-import todosRepository from '../../../db/todosRepository';
-import { selectTodoById } from '../../selectors/todos';
-import { todoAdded } from '../../slices/todosSlice';
+import { todoAdded } from '../defaultTodosSlice';
+import todosRepository from '../repository/todosRepository';
+import { selectTodoById } from '../selectors';
 import {
   addTodo,
   addTodoHandler,
