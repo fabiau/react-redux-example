@@ -1,5 +1,5 @@
 import { all, call, spawn } from 'redux-saga/effects';
-import { todosSaga } from './todosSaga';
+import { todosSaga } from './todos';
 
 export function* rootSaga() {
   const sagas = [todosSaga] as const;
