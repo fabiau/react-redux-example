@@ -1,4 +1,4 @@
-import { call, put } from 'redux-saga/effects';
+import { apply, put } from 'redux-saga/effects';
 import todosRepository from '../../../db/todosRepository';
 import { todosHydrated } from '../../slices/todosSlice';
 import { hydrateTodos } from './hydrateTodosSaga';
@@ -7,7 +7,9 @@ describe('hydrateTodos', () => {
   const gen = hydrateTodos();
 
   it('queries all todos stored in todos repository', () => {
-    expect(gen.next().value).toEqual(call(todosRepository.all));
+    expect(gen.next().value).toEqual(
+      apply(todosRepository, todosRepository.all, [])
+    );
   });
 
   it('dispatches the queried todos by calling todosHydrated ', () => {

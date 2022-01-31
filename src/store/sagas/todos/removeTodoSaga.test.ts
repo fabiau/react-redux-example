@@ -1,4 +1,4 @@
-import { call, put, takeEvery } from 'redux-saga/effects';
+import { apply, put, takeEvery } from 'redux-saga/effects';
 import todosRepository from '../../../db/todosRepository';
 import { todoRemoved } from '../../slices/todosSlice';
 import {
@@ -35,7 +35,7 @@ describe('removeTodoHandler', () => {
   it('deletes the todo with id: "kz2qqdsg" from the todos repository', () => {
     expect(
       gen.next({ id: 'kz2qqdsg', text: 'Run the Saga', completed: false }).value
-    ).toEqual(call(todosRepository.delete, 'kz2qqdsg'));
+    ).toEqual(apply(todosRepository, todosRepository.delete, ['kz2qqdsg']));
   });
 
   it('uses id: "kz2qqdsg" to remove the todo', () => {

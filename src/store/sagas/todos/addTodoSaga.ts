@@ -1,4 +1,4 @@
-import { call, put, takeEvery, select } from 'redux-saga/effects';
+import { call, put, takeEvery, select, apply } from 'redux-saga/effects';
 import uniqid from 'uniqid';
 import todosRepository from '../../../db/todosRepository';
 import { Todo } from '../../../interfaces/models/Todo';
@@ -27,7 +27,7 @@ export function* addTodoHandler(action: AddTodoSagaAction) {
   const id: string = yield call(uniqid);
   yield put(todoAdded({ id, text: action.payload.text }));
   const addedTodo: Todo = yield select(selectTodoById, id);
-  yield call(todosRepository.add, addedTodo);
+  yield apply(todosRepository, todosRepository.add, [addedTodo]);
 }
 
 export function* addTodoSaga() {

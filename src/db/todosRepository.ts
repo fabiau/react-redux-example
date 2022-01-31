@@ -15,17 +15,17 @@ class TodosDb extends Dexie {
 export class TodosRepository {
   private readonly db = new TodosDb();
 
-  public readonly add = (item: Todo) => {
+  public add(item: Todo) {
     return this.db.todos.add(item);
-  };
+  }
 
-  public readonly delete = (id: string) => {
+  public delete(id: string) {
     return this.db.todos.delete(id);
-  };
+  }
 
-  public readonly all = () => {
+  public all() {
     return this.db.todos.toArray();
-  };
+  }
 }
 
 export const todosRepository = new TodosRepository();
