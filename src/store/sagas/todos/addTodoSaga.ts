@@ -1,4 +1,3 @@
-import { Action } from '@reduxjs/toolkit';
 import { call, put, takeEvery } from 'redux-saga/effects';
 import uniqid from 'uniqid';
 import { todoAdded } from '../../slices/todosSlice';
