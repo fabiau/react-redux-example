@@ -1,6 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { TodoAddedPayload } from '../../interfaces/actions/TodoAddedPayload';
 import { TodoRemovedPayload } from '../../interfaces/actions/TodoRemovedPayload';
+import { TodosHydratedPayload } from '../../interfaces/actions/TodosHydratedPayload';
 import { TodoToggledPayload } from '../../interfaces/actions/TodoToggledPayload';
 import { Todo } from '../../interfaces/models/Todo';
 
@@ -27,10 +28,16 @@ export const todosSlice = createSlice({
         todo.completed = !todo.completed;
       }
     },
+    todosHydrated: (_state, action: PayloadAction<TodosHydratedPayload>) => {
+      return action.payload.todos.reduce((todos, todo) => {
+        todos[todo.id] = todo;
+        return todos;
+      }, {} as TodosState);
+    },
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { todoAdded, todoRemoved, todoToggled } = todosSlice.actions;
+export const { todoAdded, todoRemoved, todoToggled, todosHydrated } = todosSlice.actions;
 
 export default todosSlice.reducer;

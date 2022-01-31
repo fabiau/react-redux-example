@@ -16,11 +16,15 @@ export class TodosRepository {
   private readonly db = new TodosDb();
 
   public readonly add = (item: Todo) => {
-    this.db.todos.add(item);
+    return this.db.todos.add(item);
   };
 
   public readonly delete = (id: string) => {
-    this.db.todos.delete(id);
+    return this.db.todos.delete(id);
+  };
+
+  public readonly all = () => {
+    return this.db.todos.toArray();
   };
 }
 

@@ -1,6 +1,5 @@
 import { call, put, takeEvery, select } from 'redux-saga/effects';
 import uniqid from 'uniqid';
-import { RootState } from '../..';
 import todosRepository from '../../../db/todosRepository';
 import { Todo } from '../../../interfaces/models/Todo';
 import { selectTodoById } from '../../selectors/todos';
