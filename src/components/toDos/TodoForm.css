@@ -33,6 +33,7 @@
   text-transform: uppercase;
   transition-property: background, border;
   transition-duration: 300ms;
+  font-size: 1rem;
   box-shadow: 0 4px 6px -1px rgb(124 58 237 / 0.3),
     0 2px 4px -2px rgb(124 58 237 / 0.3);
 }
