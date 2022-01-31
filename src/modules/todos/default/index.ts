@@ -1,11 +1,7 @@
 import { ISagaModule } from 'redux-dynamic-modules-saga';
 import defaultTodosSlice from './defaultTodosSlice';
-import { ITodosState } from './ITodosState';
+import { ITodosModule } from './ITodosModule';
 import { defaultTodosSaga } from './sagas';
-
-export interface ITodosModule {
-  todos: ITodosState;
-}
 
 export function getDefaultTodosModule(): ISagaModule<ITodosModule> {
   return {
@@ -17,5 +13,6 @@ export function getDefaultTodosModule(): ISagaModule<ITodosModule> {
     // Actions to fire when this module is added/removed
     // initialActions: [],
     // finalActions: [],
+    retained: false,
   };
 }

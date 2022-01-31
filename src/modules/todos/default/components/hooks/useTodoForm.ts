@@ -1,6 +1,6 @@
 import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
-import { addTodo } from '../../../modules/todos/default/sagas/addTodoSaga';
+import { addTodo } from '../../sagas/addTodoSaga';
 
 interface FormData {
   description: string;

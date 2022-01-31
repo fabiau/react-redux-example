@@ -1,4 +1,4 @@
-import { ITodo } from '../../modules/todos/default/ITodo';
+import { ITodo } from '../ITodo';
 import { useTodoRemove } from './hooks/useTodoRemove';
 import { useTodoToggle } from './hooks/useTodoToggle';
 
