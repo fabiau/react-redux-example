@@ -8,5 +8,6 @@
 }
 
 .todo-list > li:nth-child(odd) {
-  background: #cbd5e1;
+  background: #e5e7eb;
+  border-radius: 4px;
 }

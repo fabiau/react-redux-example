@@ -23,8 +23,8 @@
 
 .todo-form > button {
   min-width: fit-content;
-  padding-inline: 0.5rem;
-  padding-block: 0.25rem;
+  padding-inline: 1rem;
+  padding-block: 0.5rem;
   border-radius: 8px;
   border: none;
   background: #8b5cf6;
@@ -34,6 +34,7 @@
   transition-property: background, border;
   transition-duration: 300ms;
   font-size: 1rem;
+  font-weight: bold;
   box-shadow: 0 4px 6px -1px rgb(124 58 237 / 0.3),
     0 2px 4px -2px rgb(124 58 237 / 0.3);
 }
