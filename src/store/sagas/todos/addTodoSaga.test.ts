@@ -1,5 +1,7 @@
-import { call, put, takeEvery } from 'redux-saga/effects';
+import { call, put, select, takeEvery } from 'redux-saga/effects';
 import uniqid from 'uniqid';
+import todosRepository from '../../../db/todosRepository';
+import { selectTodoById } from '../../selectors/todos';
 import { todoAdded } from '../../slices/todosSlice';
 import {
   addTodo,
@@ -35,8 +37,30 @@ describe('addTodoHandler', () => {
   });
 
   it('uses the generated id: "kz2qa7mn" and the text: "Run the Saga" to add the todo', () => {
+    // @ts-ignore
     expect(gen.next('kz2qa7mn').value).toEqual(
       put(todoAdded({ id: 'kz2qa7mn', text: 'Run the Saga' }))
     );
+  });
+
+  it('uses the generated id: "kz2qa7mn" to query state', () => {
+    expect(gen.next().value).toEqual(select(selectTodoById, 'kz2qa7mn'));
+  });
+
+  it('saves the queried todo in the todos repository', () => {
+    expect(
+      // @ts-ignore
+      gen.next({ id: 'kz2qa7mn', text: 'Run the Saga', completed: false }).value
+    ).toEqual(
+      call(todosRepository.add, {
+        id: 'kz2qa7mn',
+        text: 'Run the Saga',
+        completed: false,
+      })
+    );
+  });
+
+  it('should be done processing at this point', () => {
+    expect(gen.next().done).toBe(true);
   });
 });
