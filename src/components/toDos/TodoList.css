@@ -1,0 +1,12 @@
+.todo-list {
+  width: 100%;
+  max-width: 64rem;
+  display: flex;
+  margin: auto;
+  padding: 2rem;
+  flex-direction: column;
+}
+
+.todo-list :nth-child(odd) {
+  background: #cbd5e1;
+}
