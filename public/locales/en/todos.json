@@ -1,0 +1,10 @@
+{
+  "title": "My To-do List",
+  "form": {
+    "title": "Add a new To-do",
+    "add": "Add"
+  },
+  "list": {
+    "remove": "Remove"
+  }
+}

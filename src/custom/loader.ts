@@ -1,13 +1,15 @@
 import { api } from '../api';
-import { Todos } from '../modules/todos/default/Todos';
+import { TodosPage } from '../modules/todos/default/TodosPage';
 
 async function loadCrazyTodosModule() {
-  const { CrazyTodos } = await import('./modules/crazy-todos/CrazyTodos');
-  api.componentsContainer.register(Todos.$, CrazyTodos);
+  const { CrazyTodosPage } = await import(
+    './modules/crazy-todos/CrazyTodosPage'
+  );
+  api.componentsContainer.register(TodosPage.$, CrazyTodosPage);
 }
 
 async function unloadCrazyTodosModule() {
-  api.componentsContainer.unregister(Todos.$);
+  api.componentsContainer.unregister(TodosPage.$);
 }
 
 export function customizationLoader() {

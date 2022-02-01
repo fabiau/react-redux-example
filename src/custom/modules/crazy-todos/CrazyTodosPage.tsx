@@ -5,7 +5,7 @@ import { TodoList } from '../../../modules/todos/default/components/TodoList';
 
 import '../../../modules/todos/default/Todos.css';
 
-export const CrazyTodos = () => {
+export const CrazyTodosPage = () => {
   return (
     <DynamicModuleLoader modules={[getCrazyTodosModule()]} strictMode>
       <main className="todos">

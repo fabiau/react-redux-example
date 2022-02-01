@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { ITodo } from '../ITodo';
 import { useTodoRemove } from './hooks/useTodoRemove';
 import { useTodoToggle } from './hooks/useTodoToggle';
@@ -10,6 +11,7 @@ export interface TodoListItemProps {
 
 export const TodoListItem = (props: TodoListItemProps) => {
   const { todo } = props;
+  const { t } = useTranslation('todos');
   const handleToggleClick = useTodoToggle(todo.id);
   const handleRemoveClick = useTodoRemove(todo.id);
 
@@ -26,7 +28,7 @@ export const TodoListItem = (props: TodoListItemProps) => {
         className="todo-list-item__remove"
         onClick={handleRemoveClick}
       >
-        Remove
+        {t('list.remove')}
       </button>
     </li>
   );

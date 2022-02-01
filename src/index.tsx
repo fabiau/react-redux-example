@@ -1,13 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import './index.css';
 import { store } from './store';
 import { Provider as ReduxProvider } from 'react-redux';
 import reportWebVitals from './reportWebVitals';
 import customizationLoader from './custom/loader';
 import componentsContainer from './context/componentsContainer';
 import { ComponentsContextProvider } from './context/ComponentsContextProvider';
+import './index.css';
+import './i18n';
 
 ReactDOM.render(
   <React.StrictMode>
